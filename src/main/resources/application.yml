@@ -1,0 +1,8 @@
+spring:
+  datasource:
+    url: "jdbc:postgresql://localhost:5432/lesson_6?currentSchema=lesson-6_schema"
+    username: aditone
+    password: 2378
+server:
+  port : 8180
+
