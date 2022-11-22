@@ -9,11 +9,11 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
-    @Column(name = "quantity")
+/*    @Column(name = "quantity")
     private int quantity;
 
     @Column(name = "data")
-    private String data;
+    private String data;*/
 
     @ManyToOne(cascade = CascadeType.REMOVE)//...не уверен -надо ли...
     @JoinColumn(name = "customer_id")//столбец с записями отсылок к клиентам
@@ -28,12 +28,12 @@ public class Order {
     public Long getId() {
         return id;
     }//id - обязательно без сеттера!!!
-    public int getQuantity() {
+   /* public int getQuantity() {
         return quantity;
     }
     public void setQuantity(int quantity) {
         this.quantity = quantity;
-    }
+    }*/
     public Customer getCustomer() {
         return customer;
     }
@@ -52,13 +52,13 @@ public class Order {
         return  "{ "+
                 customer.getLogin() +
                 " id= " + id +
-                ", product= " + product.getTitle()+
+                ", product= " + product.getTitle()/*+
                 ", quantity= " + quantity +
                 ", data= " + getData() +
-                " }";
+                " }"*/;
     }
 
-    private String getData() {
+    /*private String getData() {
         return data;
-    }
+    }*/
 }

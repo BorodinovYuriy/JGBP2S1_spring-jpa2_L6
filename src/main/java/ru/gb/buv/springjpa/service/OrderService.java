@@ -22,10 +22,9 @@ public class OrderService {
         return orderDao.findCustomerOrders(customerId);
     }
 
-    public void add(Long customerId, Long productId, int quantity) {
+    public void add(Long customerId, Long productId) {
         Order o = new Order();
         o.setCustomer(customerService.findAndReturnCustomerById(customerId));
-        o.setQuantity(quantity);
         o.setProduct(productService.getProductById(productId));
 
         orderDao.save(o);

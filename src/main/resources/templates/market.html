@@ -14,11 +14,9 @@
 
 <h1 style="color:red">"MegaMarket - WELCOME!!!"</h1>
 <br>
-<div th:with="name=${customer.login}">
-    <p>
-        Вы зашли под логином:  <span th:text="${name}">LOGIN</span>
-    </p>
-</div>
+<p>
+    Вы зашли под логином:  <span th:text="${customer.login}">LOGIN</span>
+</p>
 <hr>
 <!--*************************************************************************************-->
 <div>
@@ -40,41 +38,18 @@
             <td th:text = "${l.title}">title</td>
             <td th:text = "${l.cost}">cost</td>
             <td>
-                <form method="post" th:action="@{/market/add_order}" th:object="${order}">
+                <form method="post" th:action="@{/market/add_order}" >
                     <div th:with="customer_id=${customer.id}, product_id=${l.id}">
                         <input type="number" th:value="${customer_id}" name="customer_id"/>
                         <input type="number" th:value="${product_id}" name="product_id"/>
                     </div>
-
-
-
-
                     <button class="btn btn-success" type="submit">Add to order</button>
                 </form>
-
-                <!--<form action="#" th:action="@{/market/add_order}" th:object="${order}" method="post">
-                    <input type="text" th:field="*{customer.login}" />
-                    <input type="submit" />
-                </form>-->
-
-                <!--<h1>Form</h1>
-                <form method="post" th:action="@{/market/add_order}" th:object="${order}">
-                    <p>customer_id: <input type="number" th:field="*{customer_id}" /></p>
-                    <p>product_id: <input type="number" th:field="*{product_id}" /></p>
-                    <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
-                </form>-->
-
             </td>
         </tr>
         </tbody>
     </table>
-
-
     <hr>
-
-
 </div>
-
-
 </body>
 </html>

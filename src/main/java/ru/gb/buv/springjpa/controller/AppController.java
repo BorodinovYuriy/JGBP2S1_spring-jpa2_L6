@@ -1,9 +1,8 @@
 package ru.gb.buv.springjpa.controller;
-import org.springframework.http.MediaType;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 import ru.gb.buv.springjpa.entity.Customer;
 import ru.gb.buv.springjpa.entity.Order;
 import ru.gb.buv.springjpa.entity.Product;
@@ -11,7 +10,7 @@ import ru.gb.buv.springjpa.service.CustomerService;
 import ru.gb.buv.springjpa.service.OrderService;
 import ru.gb.buv.springjpa.service.ProductService;
 import java.util.List;
-import java.util.Map;
+
 
 @Controller
 public class AppController {
@@ -42,18 +41,14 @@ public class AppController {
         return "/market";
     }
     @PostMapping("/market/add_order")
-    public String addOrder(Order order){
-        System.out.println(order.toString());
-
-
-        return "/market";
+    public String addOrder(@RequestParam(value = "customer_id") Long  customer_id
+            ,@RequestParam(value = "product_id") Long  product_id){
+        Customer c = customerService.findAndReturnCustomerById(customer_id);
+        System.out.println(c.getLogin());
+        orderService.add(customer_id,product_id);
+        return "redirect:/market/"+c.getLogin();
 
     }
-
-
-
-
-
 
 
     @GetMapping("/market/orders/{customerId}")

@@ -19,7 +19,9 @@ CREATE TABLE lesson_6_schema.orders
 (
     id bigserial NOT NULL primary key,
     customer_id bigint NOT NULL REFERENCES customers (id),
-    product_id bigint NOT NULL REFERENCES products (id),
-    quantity integer NOT NULL,
-    data timestamp with time zone NOT NULL DEFAULT CURRENT_TIMESTAMP
+    product_id bigint NOT NULL REFERENCES products (id)
 );
+/*
+quantity integer NOT NULL,
+    data timestamp with time zone DEFAULT CURRENT_TIMESTAMP
+*/
