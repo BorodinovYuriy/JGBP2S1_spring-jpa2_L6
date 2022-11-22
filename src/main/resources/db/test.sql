@@ -11,8 +11,15 @@ insert into products (title, cost) values ('Товар10', 10.0);
 SELECT * FROM lesson_6_schema.products
 ORDER BY id ASC
 
-insert into customers ("login") values ('log1');
-insert into customers ("login") values ('log2');
+insert into lesson_6_schema.customers ("login") values ('log1');
+insert into lesson_6_schema.customers ("login") values ('log2');
+insert into lesson_6_schema.customers ("login") values ('log3');
 
 SELECT * FROM lesson_6_schema.customers
+ORDER BY id ASC
+
+insert into lesson_6_schema.orders (customer_id, product_id, quantity) values (1,1,100);
+insert into lesson_6_schema.orders (customer_id, product_id, quantity) values (1,2,200);
+
+SELECT * FROM lesson_6_schema.orders
 ORDER BY id ASC

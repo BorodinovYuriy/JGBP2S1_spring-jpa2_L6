@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: "jdbc:postgresql://localhost:5432/lesson_6?currentSchema=lesson-6_schema"
+    url: "jdbc:postgresql://localhost:5432/lesson_6?currentSchema=lesson_6_schema"
     username: aditone
     password: 2378
 server:
