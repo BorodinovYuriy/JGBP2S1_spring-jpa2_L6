@@ -6,6 +6,8 @@ import ru.gb.buv.springjpa.dao.ProductDao;
 import ru.gb.buv.springjpa.entity.Product;
 
 import java.util.List;
+import java.util.Optional;
+
 @Service
 public class ProductService {
     private final ProductDao productDao;
@@ -29,4 +31,30 @@ public class ProductService {
     public void addNewProduct(Product p) {
         productDao.save(p);
     }
+
+    public Product getProductById(Long productId) {
+        Optional<Product> op = productDao.findById(productId);
+        return op.orElse(null);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

@@ -1,0 +1,34 @@
+angular.module('market_app',[]).controller
+                    ('indexController', function($scope, $http){
+    const contextPath = 'http://localhost:8180';
+    $scope.test = 'TEST_market_app';
+    $scope.number = [[${number}]];
+    $scope.message = "[[${message}]]";
+
+
+/*запрос списка продуктов*/
+    $scope.fillTable = function() {
+        $http.get(contextPath + '/products')
+            .then(function(response) {
+            $scope.ProductList = response.data;
+            });
+    }
+/*количество продуктов*/
+    $scope.changeQuantity = function(productId, quantity){
+            $http({
+                url: contextPath + '/product/change_quantity',
+                method: 'GET',
+                params: {
+                    productId: productId,
+                    quantity: quantity
+
+                }
+
+                }).then(function(response) {
+                $scope.fillTable();
+            });
+    }
+
+
+    $scope.fillTable();
+});
